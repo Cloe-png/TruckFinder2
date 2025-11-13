@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" spacing="10">
+    <Label text="Liste des FoodTrucks" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <TableView fx:id="foodTruckTable">
+        <columns>
+            <TableColumn text="Nom" fx:id="nomCol" prefWidth="150"/>
+            <TableColumn text="Statut" fx:id="statutCol" prefWidth="100"/>
+            <TableColumn text="Ouvert" fx:id="ouvertCol" prefWidth="80"/>
+            <TableColumn text="Type de Cuisine" fx:id="typeCuisineCol" prefWidth="150"/>
+            <TableColumn text="Adresse" fx:id="adresseCol" prefWidth="200"/>
+        </columns>
+    </TableView>
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Valider" onAction="#handleValider" style="-fx-background-color: green; -fx-text-fill: white;"/>
+        <Button text="Refuser" onAction="#handleRefuser" style="-fx-background-color: red; -fx-text-fill: white;"/>
+    </HBox>
+</VBox>

@@ -1,0 +1,24 @@
+package org.example.truckfinder2.models;
+
+public class Utilisateur {
+    private int id;
+    private String nom;
+    private String email;
+    private String motDePasse;
+    private String role; // "admin" ou "foodtruck"
+
+    public Utilisateur(int id, String nom, String email, String motDePasse, String role) {
+        this.id = id;
+        this.nom = nom;
+        this.email = email;
+        this.motDePasse = motDePasse;
+        this.role = role;
+    }
+
+    // Getters et setters...
+    public int getId() { return id; }
+    public String getNom() { return nom; }
+    public String getEmail() { return email; }
+    public String getMotDePasse() { return motDePasse; }
+    public String getRole() { return role; }
+}

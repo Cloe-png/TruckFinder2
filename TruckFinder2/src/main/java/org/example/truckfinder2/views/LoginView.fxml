@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" spacing="10" alignment="CENTER">
+    <Label text="Connexion" style="-fx-font-size: 20px;"/>
+    <TextField promptText="Email" fx:id="emailField"/>
+    <PasswordField promptText="Mot de passe" fx:id="passwordField"/>
+    <Button text="Se connecter" onAction="#handleLogin"/>
+    <Label fx:id="messageLabel" style="-fx-text-fill: red;"/>
+    <Button text="S'inscrire" onAction="#handleRegister"/>
+</VBox>
