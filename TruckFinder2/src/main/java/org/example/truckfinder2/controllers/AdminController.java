@@ -1,36 +1,38 @@
 package org.example.truckfinder2.controllers;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import java.sql.Connection;
-import java.sql.SQLException;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import org.example.truckfinder2.models.FoodTruck;
+import org.example.truckfinder2.viewmodels.AdminViewModel;
 
 public class AdminController {
-    private FoodTruckDAO foodTruckDAO;
-    private ObservableList<FoodTruck> foodTrucks;
+    @FXML private TableView<FoodTruck> foodTrucksOuvertsTable;
+    @FXML private TableColumn<FoodTruck, String> nomCol;
+    @FXML private TableColumn<FoodTruck, String> statutCol;
+    @FXML private TableColumn<FoodTruck, Boolean> ouvertCol;
 
-    public AdminController(Connection connection) {
-        this.foodTruckDAO = new FoodTruckDAO(connection);
-        this.foodTrucks = FXCollections.observableArrayList();
-    }
+    @FXML private TableView<FoodTruck> tousFoodTrucksTable;
+    @FXML private TableColumn<FoodTruck, String> nomColTous;
+    @FXML private TableColumn<FoodTruck, String> statutColTous;
+    @FXML private TableColumn<FoodTruck, Boolean> ouvertColTous;
 
-    public void listerFoodTrucks() {
-        try {
-            foodTrucks.setAll(foodTruckDAO.listerFoodTrucks());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+    private AdminViewModel adminViewModel;
 
-    public void validerDemande(int idFoodTruck, String statut) {
-        try {
-            foodTruckDAO.validerDemande(idFoodTruck, statut);
-            listerFoodTrucks(); // Rafraîchit la liste
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+    public void setAdminViewModel(AdminViewModel adminViewModel) {
+        this.adminViewModel = adminViewModel;
 
-    public ObservableList<FoodTruck> getFoodTrucks() {
-        return foodTrucks;
+        // Configuration des colonnes pour les foodtrucks ouverts
+        nomCol.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        statutCol.setCellValueFactory(new PropertyValueFactory<>("statut"));
+        ouvertCol.setCellValueFactory(new PropertyValueFactory<>("estOuvert"));
+        foodTrucksOuvertsTable.setItems(adminViewModel.getFoodTrucksOuverts());
+
+        // Configuration des colonnes pour tous les foodtrucks
+        nomColTous.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        statutColTous.setCellValueFactory(new PropertyValueFactory<>("statut"));
+        ouvertColTous.setCellValueFactory(new PropertyValueFactory<>("estOuvert"));
+        tousFoodTrucksTable.setItems(adminViewModel.getTousFoodTrucks());
     }
 }

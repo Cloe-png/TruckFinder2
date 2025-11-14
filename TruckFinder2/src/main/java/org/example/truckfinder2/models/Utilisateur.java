@@ -5,7 +5,7 @@ public class Utilisateur {
     private String nom;
     private String email;
     private String motDePasse;
-    private String role; // "admin" ou "foodtruck"
+    private String role;
 
     public Utilisateur(int id, String nom, String email, String motDePasse, String role) {
         this.id = id;

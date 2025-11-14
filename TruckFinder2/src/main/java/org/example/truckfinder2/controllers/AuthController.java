@@ -1,4 +1,9 @@
 package org.example.truckfinder2.controllers;
+import org.example.truckfinder2.dao.DemandeDAO;
+import org.example.truckfinder2.dao.FoodTruckDAO;
+import org.example.truckfinder2.dao.UtilisateurDAO;
+import org.example.truckfinder2.models.Utilisateur;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;

@@ -1,4 +1,6 @@
 package org.example.truckfinder2.dao;
+import org.example.truckfinder2.models.Utilisateur;
+
 import java.sql.*;
 
 public class UtilisateurDAO {
